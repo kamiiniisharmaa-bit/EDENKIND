@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>EDENKIND — studio of curiosities</title>
+  <!-- Google Fonts + modern font system -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #fef9f0;
+      color: #1c1b1f;
+      scroll-behavior: smooth;
+    }
+
+    /* Unique color palette — earthy & electric */
+    :root {
+      --sand: #f2e7d5;
+      --clay: #c17b5c;
+      --deep-teal: #1d4949;
+      --charcoal: #2c2a2e;
+      --amber-light: #ebc28e;
+      --card-blur: rgba(255, 250, 240, 0.8);
+      --shadow-soft: 0 18px 36px -12px rgba(0, 0, 0, 0.12);
+      --shadow-hover: 0 30px 45px -15px rgba(0, 0, 0, 0.2);
+      --border-organic: 1px solid rgba(193, 123, 92, 0.25);
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+
+    /* header with unique identity */
+    .site-header {
+      padding: 1.5rem 0;
+      background: rgba(254, 249, 240, 0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      border-bottom: 2px solid rgba(193, 123, 92, 0.2);
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-area h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(125deg, #1d4949 20%, #c17b5c 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .logo-area span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #aa8e6c;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c2a2e;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #c17b5c;
+    }
+    .header-icons {
+      display: flex;
+      gap: 1.4rem;
+    }
+    .header-icons i {
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #2c2a2e;
+    }
+    .header-icons i:hover {
+      color: #c17b5c;
+      transform: scale(1.05);
+    }
+
+    /* Hero — surreal & fresh */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      padding: 4rem 0 5rem;
+      align-items: center;
+    }
+    .hero-left .badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #c17b5c;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    .hero-left h2 {
+      font-size: 3.6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      color: #1d4949;
+    }
+    .hero-left p {
+      font-size: 1.1rem;
+      color: #59565c;
+      margin-bottom: 2rem;
+      max-width: 90%;
+      line-height: 1.5;
+    }
+    .hero-btn {
+      background: #1d4949;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      color: white;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: var(--shadow-soft);
+    }
+    .hero-btn i {
+      transition: transform 0.2s;
+    }
+    .hero-btn:hover {
+      background: #c17b5c;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    .hero-btn:hover i {
+      transform: translateX(5px);
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .floating-object {
+      background: radial-gradient(circle at 30% 40%, #e3d5c0, #cfbc9f);
+      width: 300px;
+      height: 300px;
+      border-radius: 62% 38% 70% 30% / 42% 45% 55% 58%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 30px 40px -18px rgba(0, 0, 0, 0.2);
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+    .floating-object i {
+      font-size: 6rem;
+      color: #2c2a2e;
+      opacity: 0.85;
+    }
+
+    /* mini features */
+    .mini-features {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid #e4d9cd;
+      margin-top: 1rem;
+    }
+    .feat {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+    .feat i {
+      font-size: 1.6rem;
+      color: #c17b5c;
+    }
+
+    /* section heading */
+    .section-head {
+      text-align: center;
+      margin: 4rem 0 2.5rem;
+    }
+    .section-head h3 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: #1d4949;
+    }
+    .section-head .sub {
+      color: #7c6e5d;
+      margin-top: 0.5rem;
+    }
+
+    /* Product grid — unique cards with hover morph */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .product {
+      background: var(--card-blur);
+      backdrop-filter: blur(3px);
+      border-radius: 2rem;
+      transition: all 0.3s ease;
+      border: var(--border-organic);
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+    }
+    .product:hover {
+      transform: scale(1.01) translateY(-6px);
+      border-color: #c17b5c;
+      box-shadow: var(--shadow-hover);
+      background: rgba(255, 251, 245, 0.95);
+    }
+    .product-img {
+      background: #efe2d4;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .product-img i {
+      font-size: 3.8rem;
+      color: #2c2a2e;
+      transition: 0.2s;
+    }
+    .product:hover .product-img i {
+      color: #c17b5c;
+      transform: rotate(3deg) scale(1.02);
+    }
+    .tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: #1d4949;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      color: #fef3e4;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .product-info {
+      padding: 1.4rem;
+    }
+    .product-info h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin: 0.6rem 0;
+    }
+    .current-price {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #1d4949;
+    }
+    .old-price {
+      font-size: 0.8rem;
+      text-decoration: line-through;
+      color: #a1907c;
+    }
+    .stars {
+      color: #ebc28e;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+    .add-btn {
+      width: 100%;
+      background: transparent;
+      border: 1px solid #c17b5c;
+      padding: 0.6rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      font-size: 0.8rem;
+      transition: 0.2s;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .add-btn:hover {
+      background: #c17b5c;
+      color: white;
+    }
+
+    /* banner — unique editorial */
+    .editorial-banner {
+      background: #1d4949;
+      border-radius: 2rem;
+      margin: 3rem 0;
+      padding: 2.8rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      color: #fef0e2;
+    }
+    .banner-content h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+    .banner-content p {
+      opacity: 0.85;
+      margin-top: 0.5rem;
+    }
+    .banner-btn {
+      background: #ebc28e;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #1d4949;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* new arrivals section with different flavor */
+    .new-arrivals {
+      background: #f7efe4;
+      border-radius: 2rem;
+      padding: 2rem 2rem 2.5rem;
+      margin-bottom: 4rem;
+    }
+    .arrival-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+    .arrival-header h3 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #2c2a2e;
+    }
+    .arrival-link {
+      color: #c17b5c;
+      font-weight: 500;
+    }
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem;
+    }
+    .mini-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: 0.2s;
+      box-shadow: 0 6px 12px -8px rgba(0,0,0,0.05);
+    }
+    .mini-card i {
+      font-size: 2.2rem;
+      background: #f2e7d5;
+      padding: 0.8rem;
+      border-radius: 60px;
+      color: #1d4949;
+      margin-bottom: 0.8rem;
+    }
+
+    /* footer */
+    .footer {
+      background: #2c2a2e;
+      margin-top: 5rem;
+      padding: 2.5rem 0 2rem;
+      color: #cdc6bc;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-col h4 {
+      color: #ebc28e;
+      margin-bottom: 1rem;
+    }
+    .footer-col p {
+      font-size: 0.85rem;
+      max-width: 240px;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-left p {
+        max-width: 100%;
+      }
+      .hero-right {
+        order: -1;
+      }
+      .container {
+        padding: 0 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-flex">
+    <div class="logo-area">
+      <h1>EDENKIND</h1>
+      <span>✦ curious objects & slow craft ✦</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <div class="header-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user-circle"></i>
+      <i class="fas fa-shopping-bag"></i>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- Hero section -->
+    <div class="hero">
+      <div class="hero-left">
+        <div class="badge">✦ EDITION 04 ✦</div>
+        <h2>Where objects hold memory & magic</h2>
+        <p>Handpicked artifacts, heirloom textiles, and sculptural decor — each piece tells a forgotten story.</p>
+        <button class="hero-btn">explore the cabinet <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="hero-right">
+        <div class="floating-object">
+          <i class="fas fa-feather-alt"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- feature badges -->
+    <div class="mini-features">
+      <div class="feat"><i class="fas fa-leaf"></i> <span>carbon negative shipping</span></div>
+      <div class="feat"><i class="fas fa-hands"></i> <span>artisan guaranteed</span></div>
+      <div class="feat"><i class="fas fa-gem"></i> <span>lifetime curation</span></div>
+      <div class="feat"><i class="fas fa-recycle"></i> <span>reclaimed packaging</span></div>
+    </div>
+
+    <!-- featured collection / unique products -->
+    <div class="section-head">
+      <h3>✦ signature oddities ✦</h3>
+      <div class="sub">uncommon forms for uncommon spirits</div>
+    </div>
+
+    <div class="product-grid">
+      <div class="product">
+        <div class="product-img">
+          <i class="fas fa-crown"></i>
+          <span class="tag">limited</span>
+        </div>
+        <div class="product-info">
+          <h4>Driftwood Chandelier</h4>
+          <div class="stars">★★★★★  (23)</div>
+          <div class="price-row">
+            <span class="current-price">$289</span>
+            <span class="old-price">$420</span>
+          </div>
+          <button class="add-btn"><i class="fas fa-plus-circle"></i> quick view</button>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-img">
+          <i class="fas fa-moon"></i>
+          <span class="tag">new</span>
+        </div>
+        <div class="product-info">
+          <h4>Lunar Alchemy Vessel</h4>
+          <div class="stars">★★★★☆  (47)</div>
+          <div class="price-row">
+            <span class="current-price">$134</span>
+          </div>
+          <button class="add-btn"><i class="fas fa-plus-circle"></i> quick view</button>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-img">
+          <i class="fas fa-archive"></i>
+          <span class="tag">archival</span>
+        </div>
+        <div class="product-info">
+          <h4>Cabinet of Curiosities</h4>
+          <div class="stars">★★★★★  (89)</div>
+          <div class="price-row">
+            <span class="current-price">$475</span>
+          </div>
+          <button class="add-btn"><i class="fas fa-plus-circle"></i> quick view</button>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-img">
+          <i class="fas fa-feather"></i>
+          <span class="tag">pre-order</span>
+        </div>
+        <div class="product-info">
+          <h4>Avian Skull Terrarium</h4>
+          <div class="stars">★★★★☆  (32)</div>
+          <div class="price-row">
+            <span class="current-price">$98</span>
+          </div>
+          <button class="add-btn"><i class="fas fa-plus-circle"></i> quick view</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- editorial banner with unique CTA -->
+    <div class="editorial-banner">
+      <div class="banner-content">
+        <h3>the wandering loom 🧵</h3>
+        <p>Exclusive ikat & natural dye textiles — direct from collective weavers in remote villages.</p>
+      </div>
+      <button class="banner-btn">reserve a piece →</button>
+    </div>
+
+    <!-- second product set / different category -->
+    <div class="section-head">
+      <h3>✦ gathered lately ✦</h3>
+      <div class="sub">fresh from the atelier & global finds</div>
+    </div>
+
+    <div class="product-grid">
+      <div class="product">
+        <div class="product-img">
+          <i class="fas fa-hand-sparkles"></i>
+        </div>
+        <div class="product-info">
+          <h4>Kintsugi Bowl Set</h4>
+          <div class="stars">★★★★★  (14)</div>
+          <div class="price-row"><span class="current-price">$172</span></div>
+          <button class="add-btn"><i class="fas fa-shopping-bag"></i> add</button>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-img">
+          <i class="fas fa-couch"></i>
+        </div>
+        <div class="product-info">
+          <h4>Wabi-Sabi Stool</h4>
+          <div class="stars">★★★★☆  (9)</div>
+          <div class="price-row"><span class="current-price">$229</span></div>
+          <button class="add-btn"><i class="fas fa-shopping-bag"></i> add</button>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-img">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="product-info">
+          <h4>Botanical Folio</h4>
+          <div class="stars">★★★★★  (36)</div>
+          <div class="price-row"><span class="current-price">$54</span></div>
+          <button class="add-btn"><i class="fas fa-shopping-bag"></i> add</button>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-img">
+          <i class="fas fa-mask"></i>
+        </div>
+        <div class="product-info">
+          <h4>Nomad Mask (wood)</h4>
+          <div class="stars">★★★★☆  (21)</div>
+          <div class="price-row"><span class="current-price">$141</span></div>
+          <button class="add-btn"><i class="fas fa-shopping-bag"></i> add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- New arrivals custom mini block -->
+    <div class="new-arrivals">
+      <div class="arrival-header">
+        <h3>📦 just dropped — limited batch</h3>
+        <a href="#" class="arrival-link">view all →</a>
+      </div>
+      <div class="mini-grid">
+        <div class="mini-card"><i class="fas fa-fingerprint"></i> <strong>terra incense burner</strong> <span style="font-size:0.75rem;">$47</span></div>
+        <div class="mini-card"><i class="fas fa-mug-hot"></i> <strong>raw clay cup</strong> <span style="font-size:0.75rem;">$32</span></div>
+        <div class="mini-card"><i class="fas fa-tree"></i> <strong>forest dye scarf</strong> <span style="font-size:0.75rem;">$89</span></div>
+        <div class="mini-card"><i class="fas fa-gem"></i> <strong>obsidian sphere</strong> <span style="font-size:0.75rem;">$66</span></div>
+      </div>
+    </div>
+
+    <!-- newsletter / poetic signoff -->
+    <div style="background: #ebc28e20; border-radius: 1.8rem; padding: 2rem; text-align: center; margin-bottom: 2rem;">
+      <i class="fas fa-envelope-open-text" style="font-size: 2rem; color: #c17b5c;"></i>
+      <h3 style="margin: 0.5rem 0; font-weight: 500;">the epilogue letter</h3>
+      <p style="max-width: 500px; margin: 0 auto 1rem;">curated stories, secret drops & restocks. no noise, only wonder.</p>
+      <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+        <input type="email" placeholder="your ethernet address" style="padding: 0.8rem 1.2rem; border-radius: 3rem; border: 1px solid #d4bfa5; background: white; width: 260px;">
+        <button style="background: #1d4949; border: none; padding: 0.8rem 1.5rem; border-radius: 3rem; color: white; font-weight: 600;">subscribe</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <h4>EDENKIND</h4>
+      <p>curiosity-led marketplace for rare artifacts, slow textiles & intentional objects.</p>
+    </div>
+    <div class="footer-col">
+      <h4>explore</h4>
+      <p>about the archive<br>ethical sourcing<br>journal & field notes</p>
+    </div>
+    <div class="footer-col">
+      <h4>assistance</h4>
+      <p>shipping & returns<br>guild membership<br>contact the curator</p>
+    </div>
+    <div class="footer-col">
+      <h4>dialogue</h4>
+      <p><i class="fab fa-instagram"></i>  ·  <i class="fab fa-pinterest"></i>  ·  <i class="fab fa-discord"></i></p>
+      <p style="margin-top: 0.5rem;">hello@edenkind.com</p>
+    </div>
+  </div>
+  <div class="container" style="text-align: center; margin-top: 2rem; font-size: 0.7rem; border-top: 1px solid #4a4345; padding-top: 1.5rem;">
+    © EDENKIND — studio of curiosities, MMXXV. all rights reserved.
+  </div>
+</footer>
+
+<!-- tiny interaction console log (just for demo / dynamic soft feel) -->
+<script>
+  // adding a small playful effect: alert buttons show add to cart demo
+  const allAddBtns = document.querySelectorAll('.add-btn, .hero-btn, .banner-btn');
+  allAddBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      if(btn.classList.contains('hero-btn')) {
+        alert('🌀 Welcome to the cabinet of wonders — explore our collection');
+      } else if (btn.classList.contains('banner-btn')) {
+        alert('✨ you’ll be notified when the textile collection is ready');
+      } else {
+        alert('🧡 added to your curiosity cabinet (demo experience)');
+      }
+      e.stopPropagation();
+    });
+  });
+  // product cards effect
+  const productCards = document.querySelectorAll('.product');
+  productCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      if(!e.target.classList.contains('add-btn')) {
+        alert('✨ open product — more details & material story');
+      }
+    });
+  });
+</script>
+</body>
+</html>

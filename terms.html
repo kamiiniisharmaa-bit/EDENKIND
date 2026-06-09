@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>EDENKIND — Terms of Service | Curator's Code</title>
+  <!-- Google Fonts + modern font system (same as homepage) -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #fef9f0;
+      color: #1c1b1f;
+      scroll-behavior: smooth;
+    }
+
+    /* same color palette as EDENKIND */
+    :root {
+      --sand: #f2e7d5;
+      --clay: #c17b5c;
+      --deep-teal: #1d4949;
+      --charcoal: #2c2a2e;
+      --amber-light: #ebc28e;
+      --card-blur: rgba(255, 250, 240, 0.8);
+      --shadow-soft: 0 18px 36px -12px rgba(0, 0, 0, 0.12);
+      --border-organic: 1px solid rgba(193, 123, 92, 0.25);
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+
+    /* header identical to homepage */
+    .site-header {
+      padding: 1.5rem 0;
+      background: rgba(254, 249, 240, 0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      border-bottom: 2px solid rgba(193, 123, 92, 0.2);
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-area h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(125deg, #1d4949 20%, #c17b5c 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .logo-area span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #aa8e6c;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c2a2e;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #c17b5c;
+    }
+    .header-icons {
+      display: flex;
+      gap: 1.4rem;
+    }
+    .header-icons i {
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #2c2a2e;
+    }
+    .header-icons i:hover {
+      color: #c17b5c;
+      transform: scale(1.05);
+    }
+
+    /* TERMS PAGE HERO (minimal) */
+    .terms-hero {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid rgba(193, 123, 92, 0.2);
+    }
+    .terms-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1d4949;
+      margin-bottom: 0.5rem;
+    }
+    .terms-hero .last-updated {
+      font-size: 0.85rem;
+      color: #8b7a66;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 0.5rem;
+    }
+    .breadcrumb {
+      display: flex;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #a18f7a;
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a {
+      color: #c17b5c;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* main terms layout: sidebar + content */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      margin: 3rem 0 5rem;
+    }
+    /* terms sidebar navigation */
+    .terms-sidebar {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+      background: rgba(255, 250, 240, 0.7);
+      backdrop-filter: blur(4px);
+      border-radius: 2rem;
+      padding: 1.8rem;
+      border: var(--border-organic);
+    }
+    .terms-sidebar h4 {
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      color: #c17b5c;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+    .sidebar-nav {
+      list-style: none;
+    }
+    .sidebar-nav li {
+      margin-bottom: 1rem;
+    }
+    .sidebar-nav a {
+      text-decoration: none;
+      color: #2c2a2e;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sidebar-nav a i {
+      font-size: 0.75rem;
+      color: #c17b5c;
+      opacity: 0.7;
+    }
+    .sidebar-nav a:hover {
+      color: #c17b5c;
+      transform: translateX(4px);
+    }
+
+    /* main content styling */
+    .terms-content {
+      background: rgba(255, 253, 250, 0.8);
+      border-radius: 2rem;
+      padding: 2rem 2.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(193, 123, 92, 0.15);
+    }
+    .legal-section {
+      margin-bottom: 2.8rem;
+      scroll-margin-top: 100px;
+    }
+    .legal-section h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #1d4949;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(193, 123, 92, 0.3);
+      display: inline-block;
+    }
+    .legal-section h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.8rem;
+      color: #2c2a2e;
+    }
+    .legal-section p, .legal-section li {
+      line-height: 1.6;
+      color: #3d3a41;
+      margin-bottom: 0.8rem;
+    }
+    .legal-section ul, .legal-section ol {
+      margin-left: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .legal-section a {
+      color: #c17b5c;
+      text-decoration: underline;
+    }
+    .highlight-box {
+      background: #f2e7d5;
+      padding: 1.2rem;
+      border-radius: 1.2rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid #c17b5c;
+    }
+    .legal-note {
+      font-size: 0.85rem;
+      background: #faf3ea;
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    /* footer same as homepage */
+    .footer {
+      background: #2c2a2e;
+      margin-top: 2rem;
+      padding: 2.5rem 0 2rem;
+      color: #cdc6bc;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-col h4 {
+      color: #ebc28e;
+      margin-bottom: 1rem;
+    }
+    .footer-col p {
+      font-size: 0.85rem;
+      max-width: 240px;
+    }
+
+    @media (max-width: 850px) {
+      .terms-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .terms-sidebar {
+        position: static;
+        margin-bottom: 1rem;
+      }
+      .terms-content {
+        padding: 1.5rem;
+      }
+      .container {
+        padding: 0 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-flex">
+    <div class="logo-area">
+      <h1>EDENKIND</h1>
+      <span>✦ curious objects & slow craft ✦</span>
+    </div>
+    <div class="nav-links">
+     <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <div class="header-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user-circle"></i>
+      <i class="fas fa-shopping-bag"></i>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- breadcrumb + title -->
+    <div class="terms-hero">
+      <div class="breadcrumb">
+        <a href="#">Home</a> <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> 
+        <span style="color:#c17b5c;">Terms of Service</span>
+      </div>
+      <h1>Curator's Code</h1>
+      <div class="last-updated">
+        <i class="far fa-clock"></i> Last revised: June 1, 2026 &nbsp;|&nbsp; <i class="fas fa-globe"></i> applies worldwide
+      </div>
+      <p style="margin-top: 1rem; max-width: 80%; color: #5c5346;">These terms govern your journey through EDENKIND — a sanctuary for rare objects, ethical dealings, and mutual respect between maker, curator, and collector.</p>
+    </div>
+
+    <div class="terms-grid">
+      <!-- sticky sidebar navigation (anchors) -->
+      <aside class="terms-sidebar">
+        <h4><i class="fas fa-feather-alt"></i> navigate the codex</h4>
+        <ul class="sidebar-nav">
+          <li><a href="#agreement"><i class="fas fa-hand-peace"></i> 1. Agreement & eligibility</a></li>
+          <li><a href="#objects"><i class="fas fa-gem"></i> 2. Objects & authenticity</a></li>
+          <li><a href="#purchases"><i class="fas fa-shopping-cart"></i> 3. Purchases & payments</a></li>
+          <li><a href="#shipping"><i class="fas fa-box-open"></i> 4. Shipping & rituals</a></li>
+          <li><a href="#returns"><i class="fas fa-exchange-alt"></i> 5. Returns & the wabi-sabi clause</a></li>
+          <li><a href="#intellectual"><i class="fas fa-copyright"></i> 6. Intellectual property</a></li>
+          <li><a href="#limitations"><i class="fas fa-shield-alt"></i> 7. Limitations & liability</a></li>
+          <li><a href="#governing"><i class="fas fa-gavel"></i> 8. Governing law</a></li>
+        </ul>
+        <div class="highlight-box" style="margin-top: 1.5rem; background: #e7d9cd;">
+          <i class="fas fa-seedling" style="color:#1d4949;"></i>
+          <p style="font-size: 0.75rem; margin: 0; font-weight: 500;">By entering EDENKIND, you accept our slow commerce ethics. Each item carries a story — we ask for your patience and respect.</p>
+        </div>
+      </aside>
+
+      <!-- main legal content -->
+      <div class="terms-content">
+        <section id="agreement" class="legal-section">
+          <h2>1. Agreement & eligibility</h2>
+          <p>Welcome to EDENKIND (“the Studio”, “we”, “us”, or “our”). These Terms of Service (“Terms”) form a binding legal agreement between you (“Collector”, “User”, “you”) and EDENKIND regarding your use of our website, digital services, and any purchase of objects, artifacts, or curated goods. By accessing or using any part of the site, you acknowledge that you have read, understood, and agree to be bound by these Terms.</p>
+          <p>You must be at least 18 years old or the age of majority in your jurisdiction to make a purchase. If you are under 18, you may browse but may only transact with parental or guardian involvement.</p>
+        </section>
+
+        <section id="objects" class="legal-section">
+          <h2>2. Objects & authenticity</h2>
+          <p>Every piece offered at EDENKIND — from handwoven textiles to sculptural oddities — is either sourced directly from independent artisans, recovered from ethical salvage, or produced in small batches in our partnered ateliers. We guarantee each object’s description: materials, provenance, and artisan attribution are detailed with honesty. For vintage or reclaimed items, natural signs of age (patina, slight irregularities) are part of the object’s soul and not considered defects.</p>
+          <p>All measurements, colors, and imagery are provided in good faith; however, variations in lighting or screen resolution may cause slight differences. If you ever question authenticity, our curator team is available to discuss — we stand behind our sourcing.</p>
+          <div class="highlight-box">
+            <i class="fas fa-dove"></i> <strong>Slow Promise:</strong> Every object listed on EDENKIND is either carbon-neutral shipped or part of a reforestation contribution.
+          </div>
+        </section>
+
+        <section id="purchases" class="legal-section">
+          <h2>3. Purchases & payments</h2>
+          <p>All prices are listed in USD unless otherwise noted. We accept major credit cards, PayPal, and select digital wallets. By placing an order, you agree to provide current, complete, and accurate purchase information. We reserve the right to cancel any order due to pricing errors, availability issues, or suspected fraud; in such cases you will be fully refunded.</p>
+          <p>For made-to-order or pre-ordered items, your payment will be processed at checkout, and the estimated lead time will be clearly displayed. Delays in artisan production will be communicated via email. EDENKIND does not store full payment details; we rely on PCI-compliant payment gateways.</p>
+          <h3>Taxes & duties</h3>
+          <p>Customers are responsible for any applicable sales tax, VAT, customs duties, or import fees. International collectors should check with local customs authorities before ordering.</p>
+        </section>
+
+        <section id="shipping" class="legal-section">
+          <h2>4. Shipping & rituals</h2>
+          <p>We aim to ship in-stock items within 3–5 business days. For fragile or ceremonial objects, additional packing care may extend handling up to 7 days. Shipping carriers include USPS, FedEx, or regional partners — tracking will be provided. Risk of loss or damage passes to you upon delivery; however, if a package arrives visibly damaged, please notify us within 48 hours so we can file a claim on your behalf.</p>
+          <p>We currently ship to most countries except regions under trade sanctions. In case of undeliverable addresses or refused shipments, the customer is responsible for return shipping fees and any original shipping costs.</p>
+        </section>
+
+        <section id="returns" class="legal-section">
+          <h2>5. Returns & the wabi-sabi clause</h2>
+          <p>We offer returns within 14 days of delivery for eligible items (excluding final sale, perishable, or intimate goods). To initiate a return, contact our curatorial team. Items must be returned in the same condition as received, with original wrapping where possible. Refunds are issued to the original payment method minus a 5% restocking fee that supports our artisan network.</p>
+          <p><strong>Non-returnable items:</strong> custom commissions, archived one-of-a-kind pieces, and objects marked “patina preserved” (natural wear is celebrated). If you simply changed your mind about a unique artifact, we encourage you to gift it rather than return — but we’ll still honor the 14-day window with empathy.</p>
+          <div class="highlight-box">
+            <i class="fas fa-hand-sparkles"></i> <strong>The Wabi-Sabi Clause:</strong> Because each object has an organic history, we do not accept returns based on minor variations in grain, texture, or handmade irregularities — these are marks of authenticity.
+          </div>
+        </section>
+
+        <section id="intellectual" class="legal-section">
+          <h2>6. Intellectual property</h2>
+          <p>All content on this site — including imagery, product descriptions, logos, typography, and the name “EDENKIND” — is our intellectual property or that of our contributing artists. You may not reproduce, distribute, modify, or create derivative works without explicit written permission. However, you are welcome to share product pages on social media with proper attribution to our studio.</p>
+          <p>Any user-generated content (reviews, testimonials) you post grants us a non-exclusive, royalty-free license to feature it across our platforms, always with credit to you.</p>
+        </section>
+
+        <section id="limitations" class="legal-section">
+          <h2>7. Limitations & liability</h2>
+          <p>To the maximum extent permitted by law, EDENKIND and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including lost profits or data, arising from your use of the website or purchase of products. Our total liability for any claim arising from these Terms shall not exceed the amount you paid us for the specific item in question.</p>
+          <p>We do not warrant that the site will be uninterrupted or error-free, but we promise to maintain its spirit with care. Some jurisdictions do not allow certain liability limitations, so this clause applies to the fullest extent possible under applicable law.</p>
+        </section>
+
+        <section id="governing" class="legal-section">
+          <h2>8. Governing law & dispute resolution</h2>
+          <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to conflict of law principles. Any dispute arising out of or relating to these Terms or your relationship with EDENKIND shall first be attempted to be resolved through good-faith negotiation. If unresolved, disputes shall be submitted to binding arbitration in San Francisco, CA, under the rules of the American Arbitration Association, unless otherwise agreed in writing.</p>
+          <p>For EU customers, you retain rights under local consumer protection laws; nothing in these Terms overrides mandatory statutory rights.</p>
+        </section>
+
+        <section class="legal-section">
+          <h2>9. Modifications & severability</h2>
+          <p>We may revise these Terms from time to time to reflect changes in legal requirements or our practices. The updated version will be posted with a revised “last updated” date. Continued use of the site constitutes acceptance of the revised Terms. If any provision of these Terms is found to be unenforceable, the remaining provisions shall remain in full force and effect.</p>
+          <div class="legal-note">
+            <i class="fas fa-tree"></i>  EDENKIND is a registered trade name of Curio Studio LLC — all dealings honor transparency, emotional durability, and earthly kindness.
+          </div>
+          <p style="margin-top: 1rem;">For any questions regarding these Terms, reach out to our Keeper of Records at <strong>legal@edenkind.com</strong> or via our contact form.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <h4>EDENKIND</h4>
+      <p>curiosity-led marketplace for rare artifacts, slow textiles & intentional objects.</p>
+    </div>
+    <div class="footer-col">
+      <h4>explore</h4>
+      <p>about the archive<br>ethical sourcing<br>journal & field notes</p>
+    </div>
+    <div class="footer-col">
+      <h4>assistance</h4>
+      <p>shipping & returns<br>guild membership<br>contact the curator</p>
+    </div>
+    <div class="footer-col">
+      <h4>dialogue</h4>
+      <p><i class="fab fa-instagram"></i>  ·  <i class="fab fa-pinterest"></i>  ·  <i class="fab fa-discord"></i></p>
+      <p style="margin-top: 0.5rem;">hello@edenkind.com</p>
+    </div>
+  </div>
+  <div class="container" style="text-align: center; margin-top: 2rem; font-size: 0.7rem; border-top: 1px solid #4a4345; padding-top: 1.5rem;">
+    © EDENKIND — studio of curiosities, MMXXV. all rights reserved. | <a href="#" style="color:#ebc28e; text-decoration: none;">Terms of Service</a>
+  </div>
+</footer>
+
+<!-- small interactive smoothing for anchor links -->
+<script>
+  document.querySelectorAll('.sidebar-nav a, .breadcrumb a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const hash = this.getAttribute('href');
+      if (hash && hash.startsWith('#')) {
+        e.preventDefault();
+        const targetElem = document.querySelector(hash);
+        if (targetElem) {
+          targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, null, hash);
+        }
+      }
+    });
+  });
+  // header icons simple alert (demo)
+  const icons = document.querySelectorAll('.header-icons i');
+  icons.forEach(icon => {
+    icon.addEventListener('click', () => {
+      alert('🧡 EDENKIND — explore the cabinet or return to the homepage to see curiosities.');
+    });
+  });
+</script>
+</body>
+</html>

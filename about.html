@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>EDENKIND — About the Studio | Curators of the Curious</title>
+  <!-- Google Fonts + Space Grotesk (brand signature) -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #fef9f0;
+      color: #1c1b1f;
+      scroll-behavior: smooth;
+    }
+
+    /* EDENKIND signature palette */
+    :root {
+      --sand: #f2e7d5;
+      --clay: #c17b5c;
+      --deep-teal: #1d4949;
+      --charcoal: #2c2a2e;
+      --amber-light: #ebc28e;
+      --card-blur: rgba(255, 250, 240, 0.8);
+      --shadow-soft: 0 18px 36px -12px rgba(0, 0, 0, 0.12);
+      --shadow-hover: 0 30px 45px -15px rgba(0, 0, 0, 0.2);
+      --border-organic: 1px solid rgba(193, 123, 92, 0.25);
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+
+    /* header same as global */
+    .site-header {
+      padding: 1.5rem 0;
+      background: rgba(254, 249, 240, 0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      border-bottom: 2px solid rgba(193, 123, 92, 0.2);
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-area h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(125deg, #1d4949 20%, #c17b5c 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .logo-area span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #aa8e6c;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c2a2e;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #c17b5c;
+    }
+    .header-icons {
+      display: flex;
+      gap: 1.4rem;
+    }
+    .header-icons i {
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #2c2a2e;
+    }
+    .header-icons i:hover {
+      color: #c17b5c;
+      transform: scale(1.05);
+    }
+
+    /* about hero — story lede */
+    .about-hero {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid rgba(193, 123, 92, 0.2);
+    }
+    .breadcrumb {
+      display: flex;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #a18f7a;
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a {
+      color: #c17b5c;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .about-hero h1 {
+      font-size: 3.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1d4949;
+      line-height: 1.2;
+    }
+    .tagline {
+      font-size: 1.2rem;
+      color: #c17b5c;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      letter-spacing: -0.2px;
+    }
+    .hero-quote {
+      max-width: 75%;
+      margin-top: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      color: #5c5346;
+      border-left: 3px solid #c17b5c;
+      padding-left: 1.5rem;
+    }
+
+    /* main story layout */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 4rem 0 3rem;
+      align-items: center;
+    }
+    .about-text p {
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+      color: #3d3a41;
+    }
+    .about-text h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #1d4949;
+      margin: 1.5rem 0 1rem;
+    }
+    .signature {
+      margin-top: 2rem;
+      font-style: italic;
+      color: #c17b5c;
+      font-weight: 500;
+    }
+    .about-visual {
+      background: #e7d9cd;
+      border-radius: 2.5rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+    }
+    .about-visual i {
+      font-size: 6rem;
+      color: #2c2a2e;
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+    .visual-caption {
+      font-size: 0.8rem;
+      color: #7f6e5a;
+    }
+
+    /* values / pillars */
+    .values-section {
+      background: rgba(242, 231, 213, 0.5);
+      border-radius: 2.5rem;
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .value-card {
+      text-align: center;
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1.8rem;
+      transition: 0.2s;
+      border: var(--border-organic);
+    }
+    .value-card i {
+      font-size: 2.2rem;
+      color: #c17b5c;
+      margin-bottom: 1rem;
+    }
+    .value-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .value-card p {
+      font-size: 0.85rem;
+      color: #5a5a6e;
+    }
+
+    /* team / curators mini grid */
+    .team-section {
+      margin: 4rem 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #1d4949;
+    }
+    .section-header p {
+      color: #7f6e5a;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .team-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-soft);
+    }
+    .team-card i {
+      font-size: 3rem;
+      background: #f2e7d5;
+      padding: 1rem;
+      border-radius: 100%;
+      color: #1d4949;
+      margin-bottom: 1rem;
+    }
+    .team-card h4 {
+      font-size: 1.2rem;
+    }
+    .team-card p {
+      font-size: 0.8rem;
+      color: #c17b5c;
+      margin: 0.3rem 0;
+    }
+
+    /* manifesto banner */
+    .manifesto {
+      background: #1d4949;
+      border-radius: 2rem;
+      padding: 3rem 2rem;
+      color: #fef3e4;
+      text-align: center;
+      margin: 3rem 0;
+    }
+    .manifesto h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+    .manifesto p {
+      max-width: 700px;
+      margin: 1rem auto;
+      line-height: 1.6;
+    }
+
+    /* footer */
+    .footer {
+      background: #2c2a2e;
+      margin-top: 4rem;
+      padding: 2.5rem 0 2rem;
+      color: #cdc6bc;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-col h4 {
+      color: #ebc28e;
+      margin-bottom: 1rem;
+    }
+    .footer-col p {
+      font-size: 0.85rem;
+      max-width: 240px;
+    }
+
+    @media (max-width: 850px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-quote {
+        max-width: 100%;
+      }
+      .container {
+        padding: 0 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-flex">
+    <div class="logo-area">
+      <h1>EDENKIND</h1>
+      <span>✦ curious objects & slow craft ✦</span>
+    </div>
+    <div class="nav-links">
+     <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <div class="header-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user-circle"></i>
+      <i class="fas fa-shopping-bag"></i>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- breadcrumb + hero -->
+    <div class="about-hero">
+      <div class="breadcrumb">
+        <a href="#">Home</a> <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> 
+        <span style="color:#c17b5c;">About the Studio</span>
+      </div>
+      <h1>The story behind<br>the curious cabinet</h1>
+      <div class="tagline">✦ Founded in the spirit of wonder, rooted in ethical craft ✦</div>
+      <div class="hero-quote">
+        “We believe objects carry memory — and the most meaningful ones are made slowly, by hand, with respect for earth and artisan.”
+      </div>
+    </div>
+
+    <!-- main narrative grid -->
+    <div class="about-grid">
+      <div class="about-text">
+        <p><strong>EDENKIND</strong> began as a small notebook of sketches and a radical idea: what if commerce could feel like stepping into a cabinet of curiosities — where every piece tells a story, every purchase supports a maker, and beauty is never divorced from ethics?</p>
+        <p>Founded in 2022 by curator and textile anthropologist <strong>Mara Wren</strong>, the studio grew from a nomadic pop-up into a global haven for uncommon objects. We traverse remote villages, forgotten ateliers, and urban workshops to find artifacts that defy the ordinary — from hand-carved ceremonial masks to naturally dyed ikat weavings.</p>
+        <h3>More than a marketplace</h3>
+        <p>EDENKIND is a collective of storytellers, archivists, and artisans. We don't just sell things — we preserve traditions, celebrate imperfections (wabi-sabi), and champion a slower, more intentional way of acquiring beauty. Every object in our collection has a provenance, a maker's name, and a carbon-conscious journey to your home.</p>
+        <div class="signature">— With reverence, the EDENKIND guild</div>
+      </div>
+      <div class="about-visual">
+        <i class="fas fa-tree"></i>
+        <i class="fas fa-hand-sparkles" style="font-size: 4rem; margin: 0 0.5rem;"></i>
+        <i class="fas fa-feather-alt"></i>
+        <div class="visual-caption">"Where the wild craft lives" — studio symbol, 2026</div>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">Hand-drawn emblem representing growth, hands, and flight.</p>
+      </div>
+    </div>
+
+    <!-- core values section -->
+    <div class="values-section">
+      <div style="text-align: center;">
+        <h2 style="color:#1d4949;">✦ Our pillars ✦</h2>
+        <p style="color:#7f6e5a; max-width: 600px; margin: 0.5rem auto;">Principles that guide every object, every relationship</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <i class="fas fa-hand-holding-heart"></i>
+          <h4>Radical Transparency</h4>
+          <p>Full origin stories, material sourcing, and pricing breakdowns — no greenwashing, no hidden supply chains.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-recycle"></i>
+          <h4>Circular Ethos</h4>
+          <p>Carbon-neutral shipping, reclaimed packaging, and a repair-before-replace philosophy.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-globe-asia"></i>
+          <h4>Artisan First</h4>
+          <p>Fair wages, direct partnerships, and profit-sharing with every community we work with.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-seedling"></i>
+          <h4>Slow Curation</h4>
+          <p>We release limited batches, not endless collections — each piece is given time and attention.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- team / curators -->
+    <div class="team-section">
+      <div class="section-header">
+        <h2>The keepers of the cabinet</h2>
+        <p>Curators, makers, and storytellers behind EDENKIND</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <i class="fas fa-user-astronaut"></i>
+          <h4>Mara Wren</h4>
+          <p>Founder & Head Curator</p>
+          <span style="font-size: 0.7rem;">textile anthropologist, wanderer</span>
+        </div>
+        <div class="team-card">
+          <i class="fas fa-palette"></i>
+          <h4>Elio Cruz</h4>
+          <p>Creative Director</p>
+          <span style="font-size: 0.7rem;">visual storyteller, object alchemist</span>
+        </div>
+        <div class="team-card">
+          <i class="fas fa-hands-helping"></i>
+          <h4>Samira Okafor</h4>
+          <p>Ethical Sourcing Lead</p>
+          <span style="font-size: 0.7rem;">supply chain radical, community liaison</span>
+        </div>
+        <div class="team-card">
+          <i class="fas fa-feather-alt"></i>
+          <h4>Juniper Song</h4>
+          <p>Studio Steward</p>
+          <span style="font-size: 0.7rem;">customer communion & rituals</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- manifesto / pledge banner -->
+    <div class="manifesto">
+      <i class="fas fa-quote-left" style="font-size: 2rem; opacity: 0.6;"></i>
+      <h3>The EDENKIND pledge</h3>
+      <p>We reject fast trends, throwaway culture, and anonymous production. Every object in our collection has been chosen with reverence — for the hands that made it, the materials that formed it, and the home that will hold it. 1% of every sale is donated to the <strong>Indigenous Artisan Fund</strong>. We are not perfect, but we are always learning.</p>
+      <i class="fas fa-tree" style="margin-top: 1rem; display: inline-block;"></i>
+    </div>
+
+    <!-- call to action (visit journal or shop) -->
+    <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin: 2rem 0 3rem;">
+      <a href="#" style="background: #c17b5c; color: white; text-decoration: none; padding: 0.8rem 2rem; border-radius: 60px; font-weight: 500;">Explore our Journal →</a>
+      <a href="#" style="background: transparent; border: 1px solid #c17b5c; padding: 0.8rem 2rem; border-radius: 60px; font-weight: 500; color:#1d4949; text-decoration: none;">Meet the makers</a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <h4>EDENKIND</h4>
+      <p>curiosity-led marketplace for rare artifacts, slow textiles & intentional objects.</p>
+    </div>
+    <div class="footer-col">
+      <h4>explore</h4>
+      <p>about the archive<br>ethical sourcing<br>journal & field notes</p>
+    </div>
+    <div class="footer-col">
+      <h4>assistance</h4>
+      <p>shipping & returns<br>guild membership<br>contact the curator</p>
+    </div>
+    <div class="footer-col">
+      <h4>dialogue</h4>
+      <p><i class="fab fa-instagram"></i>  ·  <i class="fab fa-pinterest"></i>  ·  <i class="fab fa-discord"></i></p>
+      <p style="margin-top: 0.5rem;">hello@edenkind.com</p>
+    </div>
+  </div>
+  <div class="container" style="text-align: center; margin-top: 2rem; font-size: 0.7rem; border-top: 1px solid #4a4345; padding-top: 1.5rem;">
+    © EDENKIND — studio of curiosities, MMXXV. all rights reserved. | <a href="#" style="color:#ebc28e; text-decoration: none;">About</a> | <a href="#" style="color:#ebc28e; text-decoration: none;">Privacy</a> | <a href="#" style="color:#ebc28e; text-decoration: none;">Terms</a>
+  </div>
+</footer>
+
+<!-- smooth demo interactions -->
+<script>
+  // header icons simple demo (non-intrusive)
+  const headerIcons = document.querySelectorAll('.header-icons i');
+  headerIcons.forEach(icon => {
+    icon.addEventListener('click', () => {
+      alert('🌿 EDENKIND — the cabinet of curiosities awaits. Return to browse objects or read our journal.');
+    });
+  });
+  // team card small click effect
+  const teamCards = document.querySelectorAll('.team-card');
+  teamCards.forEach(card => {
+    card.addEventListener('click', () => {
+      alert('✨ Each keeper brings a unique craft — meet our full collective in the journal.');
+    });
+  });
+  // value cards interactions
+  const valueCards = document.querySelectorAll('.value-card');
+  valueCards.forEach(card => {
+    card.addEventListener('click', () => {
+      alert('🧡 This pillar guides every decision at EDENKIND — slow, ethical, transparent.');
+    });
+  });
+</script>
+</body>
+</html>
